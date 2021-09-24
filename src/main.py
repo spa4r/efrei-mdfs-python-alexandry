@@ -1,9 +1,11 @@
-from flask import Flask, request,jsonify
+from flask import Flask, request,jsonify,render_template,Blueprint
 from flask_restx import Api, Resource,fields
 import json
 
 app = Flask(__name__)
-api = Api(app=app, version='1.0', title='Books API', description='', validate=True)
+api_bp = Blueprint("api", __name__, url_prefix="/api/")
+api = Api(api_bp, version='1.0', title='Books API',description='A simple API',validate=True)
+app.register_blueprint(api_bp)
 
 ns_books = api.namespace('books', description = "Books operations")
 book_definition = api.model('Book Informations', {
@@ -21,6 +23,10 @@ book_definition = api.model('Book Informations', {
 with open('data/books.json') as json_file:
     data = json.load(json_file)
     books = data["books"]
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @ns_books.route("/")
 class BooksList(Resource):
