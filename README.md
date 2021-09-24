@@ -4,13 +4,10 @@ Alexandry est une simple API programée en Python avec Flask et Flask-RESTX.
 
 ## Installation
 
-Vous pouvez utilisez [pip](https://pip.pypa.io/en/stable/) pour installer Flask et Flask-RESTX.
+Vous pouvez utilisez [pip](https://pip.pypa.io/en/stable/) pour installer les dépendances.
 
 ```bash
-pip install flask
-```
-```bash
-pip install flask-restx
+pip install -r REQUIREMENTS
 ```
 
 Ensuite, vous devez configurer FLASK_APP et FLASK_ENV.

@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Hello, Alexandry</title>
-    </head>
-    <body>
-        <h1>Hello, Alexandry</h1>
-        <p>Les auteurs de ce projet sont :</p>
-        <ul>
-            <li>JETON Alex</li>
-            <li>ISSULAHI Yousseif</li>
-            <li>NDAO Dado</li>
-        </ul>
-        <p>L'URL pour l'API est /api/ : <a>http://127.0.0.1:5000/api/</a>.</p>
-    </body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Hello, Alexandry</h1>
+    <div class="col-lg-6 mx-auto">
+        <p class="lead mb-4">Les auteurs de ce projet sont : JETON Alex, ISSULAHI Yousseif, NDAO Dado.</p>
+        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="http://127.0.0.1:5000/ihm/" class="btn btn-primary btn-lg px-4 gap-3">GO IHM</a>
+            <a href="http://127.0.0.1:5000/docs/" class="btn btn-primary btn-lg px-4 gap-3">GO DOCS</a>
+            <a href="http://127.0.0.1:5000/api/" class="btn btn-primary btn-lg px-4 gap-3">GO API</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

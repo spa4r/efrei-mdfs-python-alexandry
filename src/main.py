@@ -28,6 +28,14 @@ with open('data/books.json') as json_file:
 def index():
     return render_template('index.html')
 
+@app.route('/ihm/')
+def ihm():
+    return render_template('ihm.html',books = books)
+
+@app.route('/docs/')
+def docs():
+    return render_template('docs.html')
+
 @ns_books.route("/")
 class BooksList(Resource):
     @api.response(200, 'Flask RESTPlus  : Success')
