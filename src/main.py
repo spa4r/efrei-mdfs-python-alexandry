@@ -1,7 +1,47 @@
-from flask import Flask,render_template
+from flask import Flask, request
+from flask_restx import Api, Resource
 
 app = Flask(__name__)
+api = Api(app=app, version='1.0', title='Books API', description='', validate=True)
 
-@app.route('/')
-def index():
-    return render_template('index.html')
+ns_books = api.namespace('books', description = "Books operations")
+    
+@ns_books.route("/")
+class BooksList(Resource):
+    @api.response(200, 'Flask RESTPlus  : Success')
+    @api.response(400, 'Flask RESTPlus  : Error')
+    def get(self):
+        """
+        Returns a list of books
+        """
+
+    @api.response(200, 'Flask RESTPlus  : Success')
+    @api.response(400, 'Flask RESTPlus  : Error')
+    def post(self):
+        """
+        Add a new book to the list
+        """
+
+@ns_books.route("/<int:id>")
+class Book(Resource):
+
+    @api.response(200, 'Flask RESTPlus  : Success')
+    @api.response(400, 'Flask RESTPlus  : Error')
+    def get(self,id):
+        """
+        Return a selected book
+        """
+
+    @api.response(200, 'Flask RESTPlus  : Success')
+    @api.response(400, 'Flask RESTPlus  : Error')
+    def put(self,id):
+        """
+        Edits a selected book
+        """
+
+    @api.response(200, 'Flask RESTPlus  : Success')
+    @api.response(400, 'Flask RESTPlus  : Error')
+    def delete(self,id):
+        """
+        Delete a selected book
+        """
