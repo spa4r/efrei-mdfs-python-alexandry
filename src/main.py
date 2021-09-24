@@ -1,5 +1,6 @@
 from flask import Flask, request
 from flask_restx import Api, Resource
+import json
 
 app = Flask(__name__)
 api = Api(app=app, version='1.0', title='Books API', description='', validate=True)
@@ -14,6 +15,12 @@ class BooksList(Resource):
         """
         Returns a list of books
         """
+        file = open('./data/books.json', 'r')
+        data = []
+        for book in file:
+            data.append(book)
+
+        return {"response": data}
 
     @api.response(200, 'Flask RESTPlus  : Success')
     @api.response(400, 'Flask RESTPlus  : Error')
