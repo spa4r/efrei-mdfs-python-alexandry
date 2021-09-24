@@ -4,9 +4,9 @@
 <div class="container px-4 py-5" id="icon-grid">
     <h2 class="pb-2 border-bottom">IHM</h2>
     <div class="container">
-        <p class="lead mb-4">Si vous souhaitez afficher le tableau des livres <button onclick="myFunction()">cliquer</button></p>
+        <p class="lead mb-6">Vous retrouverez la liste des livres.</p>
     </div>
-    <table class="table" id="myDIV" style="display: none;">
+    <table class="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -27,15 +27,4 @@
         </tbody>
     </table>
 </div>
-
-<script>
-    function myFunction() {
-      var x = document.getElementById("myDIV");
-      if (x.style.display === "none") {
-        x.style.display = "block";
-      } else {
-        x.style.display = "none";
-      }
-    }
-</script>
 {% endblock %}
